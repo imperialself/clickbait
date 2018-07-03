@@ -4,14 +4,15 @@ import random
 nounPersonLive = ['The President', 'Donald Trump', 'Tom Cruise', 'Alex Noble']
 nounPersonDead = ['Hitler', 'Abraham Lincoln', 'Karl Marx']
 nounTypeOfPerson = ['Walmart Employee', 'Cancer Survivor', 'Democrat', 'Decorated Veteran']
-goodThing = ['Winning The Genetic Lottery', 'Running A Marathon', 'Eating A Piece Of Pie', 'Calling Your Mother']
+goodThing = ['Winning The Genetic Lottery', 'Running A Marathon', 'Eating A Piece Of Pie', 'Calling Your Mother', 'Watching A Movie']
 badThing = ['The Bees Dying', 'Genocide', 'Drone Strikes', 'The Holocaust']
+startupTech = ['Bitcoin', 'Uber']
 genericObject = ['Things', 'Tricks', 'Tips']
 event = ['Coronation', 'High School Prom', 'Graduation Ceremony']
 verbPast = ['Discovered', 'Did', 'Accomplished', 'Exposed']
-verbIng = ['Pooping', 'Vaping', 'Making A Phone Call']
+verbIng = ['Pooping', 'Vaping', 'Making A Phone Call', 'Taking A Nap']
 verbNiceThingToDo = ['Call Their Congressman', 'Quit Smoking']
-attentionGetter = ['Breaking:', 'Attention:', 'Urgent:', '']
+attentionGetter = ['Breaking:', 'Attention:', 'Urgent:', 'Call Your Congressman:']
 youWontBelieve = []
 reaction = ['Make You Cry', 'Shock You', 'FLoor You', 'Leave You Speechless']
 number = ['Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', '10','12', '13', '15', '20', '25', '30']
@@ -19,7 +20,7 @@ number = ['Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', '10',
 #Sentence Structures
 
 def PickSentence():
-	structure = random.randint(1, 5)
+	structure = random.randint(1, 6)
 	if structure == 1:
 		result = random.choice(attentionGetter) + ' ' + random.choice(nounPersonLive) + ' Just Told This ' + random.choice(nounTypeOfPerson) + ' To ' + random.choice(verbNiceThingToDo) + ' Because Of ' + random.choice(badThing)
 		print(result)
@@ -35,9 +36,11 @@ def PickSentence():
 	elif structure == 5:
 		result = 'Some Will Call It ' + random.choice(goodThing) + '. ' + random.choice(nounPersonLive) + ' Simply Calls It ' + random.choice(verbIng)
 		print(result)
+	elif structure == 6:
+		result = 'Is This The ' + random.choice(startupTech) + ' For ' + random.choice(verbIng) + '? See What ' + random.choice(nounPersonLive) + ' Thinks'
+		print(result)
 	#for adding new sentences
-	#else if structure == [number]:
+	#elif structure == [number]:
 	#	result = 
 	#	print(result)
-
 PickSentence()
