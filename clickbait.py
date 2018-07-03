@@ -1,37 +1,43 @@
 import random
 
 #A bunch of lists containing parts of speech go here
-nounProper = ['The President','Trump', 'Tom Cruise', 'Alex Noble']
-nounTypeOfPerson = ['Walmart employee', 'cancer survivor', 'Democrat']
-pronounSubject = []
-pronounObject = []
-article = []
-adjective = []
-verbPast = ['discovered', 'did']
-verbIng = ['pooping', 'vaping']
-verbPresent = []
-verbAction = ['take a chill pill', 'worship Satan', 'call their congressman']
-qualifier = []
-attentionGetter =['Breaking: ', 'Attention: ', 'Urgent: ']
+nounPersonLive = ['The President', 'Donald Trump', 'Tom Cruise', 'Alex Noble']
+nounPersonDead = ['Hitler', 'Abraham Lincoln', 'Karl Marx']
+nounTypeOfPerson = ['Walmart Employee', 'Cancer Survivor', 'Democrat', 'Decorated Veteran']
+goodThing = ['Winning The Genetic Lottery', 'Running A Marathon', 'Eating A Piece Of Pie', 'Calling Your Mother']
+badThing = ['The Bees Dying', 'Genocide', 'Drone Strikes', 'The Holocaust']
+genericObject = ['Things', 'Tricks', 'Tips']
+event = ['Coronation', 'High School Prom', 'Graduation Ceremony']
+verbPast = ['Discovered', 'Did', 'Accomplished', 'Exposed']
+verbIng = ['Pooping', 'Vaping', 'Making A Phone Call']
+verbNiceThingToDo = ['Call Their Congressman', 'Quit Smoking']
+attentionGetter = ['Breaking:', 'Attention:', 'Urgent:', '']
+youWontBelieve = []
+reaction = ['Make You Cry', 'Shock You', 'FLoor You', 'Leave You Speechless']
+number = ['Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', '10','12', '13', '15', '20', '25', '30']
 
-#A bunch of functions containing template headlines that will pull random parts of speech into them, Madlibs style
-def Sentence1():
-	# Example: Breaking: Trump just told this Walmart employee to call their congressman
-	result = random.choice(attentionGetter) + random.choice(nounProper) + ' just told this ' + random.choice(nounTypeOfPerson) + ' to ' + random.choice(verbAction)
-	print(result)
+#Sentence Structures
 
-def Sentence2():
-	# Example: You will never guess what the President just said to a cancer suvivor
-	result = 'You will never guess what this ' + random.choice(nounTypeOfPerson) + ' just ' + random.choice(verbPast) + ' when they were ' + random.choice(verbIng)
-	print(result)
-
-#A single function that will randomly select a template above
 def PickSentence():
-	structure = random.randint(1, 2)
+	structure = random.randint(1, 5)
 	if structure == 1:
-		Sentence1()
-	if structure == 2:
-		Sentence2()
+		result = random.choice(attentionGetter) + ' ' + random.choice(nounPersonLive) + ' Just Told This ' + random.choice(nounTypeOfPerson) + ' To ' + random.choice(verbNiceThingToDo) + ' Because Of ' + random.choice(badThing)
+		print(result)
+	elif structure == 2:
+		result = 'Was The ' + random.choice(event) + ' Of ' + random.choice(nounPersonDead) + ' Actually ' + random.choice(goodThing) + '? What ' + random.choice(nounPersonLive) + ' Thinks Will ' + random.choice(reaction)
+		print(result)
+	elif structure == 3:
+		result = 'What This ' + random.choice(nounTypeOfPerson) + ' ' + random.choice(verbPast) + ' Will ' + random.choice(reaction)
+		print(result)
+	elif structure == 4:
+		result = random.choice(number) + ' ' + random.choice(genericObject) + ' ' + random.choice(nounTypeOfPerson) + 's Don\'t Want You To Know About ' + random.choice(badThing)
+		print(result)
+	elif structure == 5:
+		result = 'Some Will Call It ' + random.choice(goodThing) + '. ' + random.choice(nounPersonLive) + ' Simply Calls It ' + random.choice(verbIng)
+		print(result)
+	#for adding new sentences
+	#else if structure == [number]:
+	#	result = 
+	#	print(result)
 
-#Run function
 PickSentence()
