@@ -1,41 +1,86 @@
-<html>
-<head>
-<meta charset="utf-8">
-<title>Kevin's Headline Generator!</title>
-<style>
+<!DOCTYPE html>
+<html lang="en">
 
-body{
-    font-size: 20px;
-}
-button{
-    border-style: solid;
-    border-color: #000;
-    border-width: 1px;
-    border-radius: 3px;
-    font-size: 6em;
-}
-.zone{
-    font-size: 6em;
-}
-</style>
-</head>
+  <head>
 
-<body onload="brython(1)">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<div align=center>
-<table>
-    <tbody>
-        <tr>
-            <td><div class="example" id="ex1" align="center"><button id="button1">Generate a headline!</button></td>
-        </tr>
-        <tr>
-            <td><span id="zone1" class="zone"></span></td>
-        </tr>
-    </tbody>
-</table>
-</div>
+    <title>Bait Gen, A Clickbait Generator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        padding-top: 54px;
+      }
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+    h1 {
+      font-family: Noe Text,Georgia,serif;
+      font-weight: 900;
+    }
+
+    </style>
+
+  </head>
+
+  <body>
+  <body onload="brython(1)">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Clickbait Generator</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="https://github.com/imperialself/clickbait">GitHub Repo
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <!--
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <br><br>
+          <div class="example" id="ex1" align="center"><button id="button1">Generate a headline!</button>
+          <h1 class="mt-5"><span id="headline" class="zone"></span></h1>
+          <p class="lead"><span id="byline" class="zone"></span></p>
+          </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Generator script-->
 <script type="text/python" id="script1">
 from browser import document
+#import datetime
 import random as r
 
 #A bunch of lists containing parts of speech go here
@@ -48,7 +93,7 @@ badAdjectives = ['Fake News', 'Staged', 'Overblown', 'a Big Sham', 'Trumped-Up',
 badThing = ['The Bees Dying', 'Genocide', 'Drone Strikes', 'The Holocaust', 'Global Warming', 'The Zombie Apocalypse', 'Economic Collapse', 'Trump', 'the Death of Free Speech', 'Russian Hackers', 'Election Meddling', 'Foreign Tax Shelters', 'the Gay Agenda', 'Abortion Clinic Bombings', 'the Westboro Baptist Church', 'Immigration Policy', 'Abortion', 'Voter Fraud', 'Alcoholism']
 startupTech = ['Bitcoin', 'Uber', 'TechCrunch', 'YCombinator', 'AirBnb', 'Alexa', 'Google Home', 'Google Maps', 'Facebook', 'Instagram', 'Slack', 'OKCupid', 'Tinder', 'Grindr', 'Yelp', 'UberEats', 'Google Docs', 'Microsoft Outlook', 'Microsoft Word', 'Bit.ly', 'GitHub', 'Amazon', 'Siri', 'Pinterest', 'Reddit']
 genericObject = ['Things', 'Tricks', 'Tips', 'Secrets', 'Little-Known Facts', 'Misunderstood Truths']
-event = ['Coronation', 'High School Prom', 'Graduation Ceremony', 'Election', 'Assassination', 'Arrest', 'Indictment', 'Wedding', 'Bachelorette Party', 'Baby Shower']
+event2 = ['Coronation', 'High School Prom', 'Graduation Ceremony', 'Election', 'Assassination', 'Arrest', 'Indictment', 'Wedding', 'Bachelorette Party', 'Baby Shower']
 verbPast = ['Discovered', 'Did', 'Accomplished', 'Exposed', 'Revealed', 'Unmasked', 'Uncovered', 'Announced', 'Insists', 'Believes']
 verbIng = ['Pooping', 'Vaping', 'Making A Phone Call', 'Taking A Nap', 'Going to Church', 'Partying', 'Getting Healthy', 'Getting Your Ultimate Beach Body', 'Getting a Job', 'Shopping at Target', 'Buying Dog Food', 'Getting a Vasectomy', 'Healing the Ocean', 'Slowing Global Warming', 'Getting a Haircut', 'Eating Sushi', 'Buying Cryptocurrency', 'Improving Your Credit', 'Identifying a Narcissist', 'Quitting Your Job', 'Diagnosing Autism']
 verbNiceThingToDo = ['Call Their Congressman', 'Quit Smoking', 'Hug Your Kids', 'Buy Your Mom Flowers', 'Go to Church', 'Donate to Charity', 'Buy the Next Round', 'Share Your Weed', 'Get Saved', 'Pet Your Dog', 'Spoil Your Lover', 'Going to the Gym']
@@ -66,9 +111,9 @@ def change(event):
     if structure == 1:
         result = r.choice(attentionGetter) + ' ' + r.choice(nounPersonLive) + ' Just Told This ' + r.choice(nounTypeOfPerson) + ' To ' + r.choice(verbNiceThingToDo) + ' Because Of ' + r.choice(badThing)
     elif structure == 2:
-        result = 'Was The ' + r.choice(event) + ' Of ' + r.choice(nounPersonDead) + ' Actually ' + r.choice(badAdjectives) + '? What ' + r.choice(nounPersonLive) + ' Thinks Will ' + r.choice(reaction)
-    elif structure == 3:
         result = 'What This ' + r.choice(nounTypeOfPerson) + ' ' + r.choice(verbPast) + ' Will ' + r.choice(reaction)
+    elif structure == 3:
+        result = 'Was The ' + r.choice(event2) + ' Of ' + r.choice(nounPersonDead) + ' Actually ' + r.choice(badAdjectives) + '? What ' + r.choice(nounPersonLive) + ' Thinks Will ' + r.choice(reaction)
     elif structure == 4:
         result = r.choice(number) + ' ' + r.choice(genericObject) + ' ' + r.choice(nounTypeOfPerson) + 's Don\'t Want You To Know About ' + r.choice(badThing)
     elif structure == 5:
@@ -83,20 +128,18 @@ def change(event):
         result = 'This ' + r.choice(organization) + ' Wanted to Make a Point About ' + r.choice(badThing) + '. They Succeeded.'
     elif structure == 10:
         result = 'This Startup is Selling ' + r.choice(item) + ' by Celebrating ' + r.choice(goodIdeal)
-    document["zone1"].textContent = result
+    document["headline"].textContent = result
+
+    #date = datetime.date.today().strftime("%B %d, %Y")
+    #bylineResult = "By Kevin Eales Monroe - " + date
+    #document["byline"].textContent = bylineResult
+
 
 document["button1"].bind("click", change)
-
-
 </script>
-
-
-</div>
-
 <script src="brython.js"></script>
 <script src="brython_stdlib.js"></script>
 
-</body>
-
+  </body>
 
 </html>
