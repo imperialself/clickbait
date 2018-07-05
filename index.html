@@ -2,6 +2,15 @@
 <html lang="en">
 
   <head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-62750593-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-62750593-3');
+</script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -23,10 +32,30 @@
           padding-top: 56px;
         }
       }
-    h1 {
-      font-family: Noe Text,Georgia,serif;
-      font-weight: 900;
-    }
+      h1 {
+        font-family: Noe Text,Georgia,serif;
+        font-weight: 900;
+      }
+      .btn {
+        color: #0099CC;
+        background: transparent;
+        border: 2px solid #0099CC;
+        border-radius: 6px;
+      }
+      .btn1:hover {
+        background-color: #008CBA;
+        color: white;
+      }
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #0099CC;
+        color: white;
+        text-align: center;
+      }
+
 
     </style>
 
@@ -65,12 +94,19 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <br><br>
-          <div class="example" id="ex1" align="center"><button id="button1">Generate a headline!</button>
-          <h1 class="mt-5"><span id="headline" class="zone"></span></h1>
+          <table>
+            <tr>
+              <td height="400px"><h1 class="mt-5"><span id="headline" class="zone"></span></h1></td>
+            </tr>
+          </table>            
           <p class="lead"><span id="byline" class="zone"></span></p>
+          <div class="example" id="ex1" align="center"><button id="button1" class="btn btn1" onClick="ga('send', event', 'button', 'click', 'generate');">Generate a headline!</button>
+            <br><br><br>
           </div>
       </div>
+    </div>
+    <div class="footer" style="padding-top: 7px">
+      <p>Made with &hearts; by Kevin and Megan</p>
     </div>
 
     <!-- Bootstrap core JavaScript -->
