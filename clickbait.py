@@ -1,4 +1,10 @@
 import random as r
+import requests
+import json
+import urllib.request
+import urllib.parse
+from config import *
+
 
 #A bunch of lists containing parts of speech go here
 nounPersonLive = ['The President', 'Donald Trump', 'Tom Cruise', 'Alex Noble', 'Barack Obama', 'Hillary Clinton', 'Ellen DeGeneres', 'Kesha', 'Regis Philbin', 'Tina Fey', 'Your Mom', 'Your Girlfriend', 'Your Grandma', 'Antonio Banderas', 'Penelope Cruz', 'R Kelly', 'Snoop Dogg', 'Kanye', 'Britney Spears', 'Kim Kardashian', 'George W. Bush', 'Arnold Schwarzenegger', 'Bob Saget', 'Oprah', 'Steve Martin', 'Steven Spielberg', 'Lady Gaga', 'Katy Perry', 'Bono', 'Justin Timberlake', 'George Clooney', 'Your Great Aunt Irma', 'Uncle Ted', 'Al Gore']
@@ -23,13 +29,24 @@ year = ['1920', '1935', '1947', '1952', '1968', '1971', '1978', '1983', '1990', 
 state = ['California', 'Florida', 'Alabama', 'Texas', 'Minnesota', 'Oklahoma', 'Louisiana', 'Kentucky']
 characteristic = ['With No Life Insurance', 'Who Owe More Than 200,000', 'With Student Debt', 'With an Arrest Record', 'With Kids', 'Who Own a Home', 'Who Want to Pay Off Debt', 'Who Need Cosmetic Surgery', 'Who Value Liberty', 'Who Own Pets', 'With More Than One Car']
 
+def ImageGetter(searchTerm):
+	searchTermEncoded = urllib.parse.quote_plus(searchTerm)
+	print(apiKey)
+	imageSearch = "https://www.googleapis.com/customsearch/v1?q=" + searchTermEncoded + "&cx=014352846413195953642%3Aa2jzsrhjiqo&fileType=jpg&imgType=news&num=1&searchType=image&key=" + apiKey
+	contents = urllib.request.urlopen(imageSearch).read()
+	results = json.loads(contents)
+	url = results
+	print(url)
+
+
 #Sentence Structures
 
 def PickSentence():
-	structure = r.randint(1, 15)
-	#structure = 15
+	#structure = r.randint(1, 15)
+	structure = 1
 	if structure == 1:
-		result = r.choice(attentionGetter) + ' ' + r.choice(nounPersonLive) + ' Just Told This ' + r.choice(nounTypeOfPerson) + ' To ' + r.choice(verbNiceThingToDo) + ' Because Of ' + r.choice(badThing)
+		name123 = r.choice(nounPersonLive)
+		result = r.choice(attentionGetter) + ' ' + name123 + ' Just Told This ' + r.choice(nounTypeOfPerson) + ' To ' + r.choice(verbNiceThingToDo) + ' Because Of ' + r.choice(badThing)
 	elif structure == 2:
 		result = 'Was The ' + r.choice(eventThing) + ' Of ' + r.choice(nounPersonDead) + ' Actually ' + r.choice(badAdjectives) + '? What ' + r.choice(nounPersonLive) + ' Thinks Will ' + r.choice(reaction)
 	elif structure == 3:
@@ -59,6 +76,9 @@ def PickSentence():
 	elif structure == 15:
 		result = r.choice(nounTypeOfPerson) + 's Explain Why We\'re Seeing a Dramatic Increase in ' + r.choice(verbIng)
 	print(result)
+	ImageGetter(name123)
+
+
 
 	#for adding new sentences
 	#elif structure == [number]:
