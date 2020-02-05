@@ -28,60 +28,66 @@ item = ['Sparkling Water', 'Razors', 'Toothbrushes', 'Jeggings', 'Record Players
 year = ['1920', '1935', '1947', '1952', '1968', '1971', '1978', '1983', '1990', '1997', '2001', '2005', '2016']
 state = ['California', 'Florida', 'Alabama', 'Texas', 'Minnesota', 'Oklahoma', 'Louisiana', 'Kentucky']
 characteristic = ['With No Life Insurance', 'Who Owe More Than 200,000', 'With Student Debt', 'With an Arrest Record', 'With Kids', 'Who Own a Home', 'Who Want to Pay Off Debt', 'Who Need Cosmetic Surgery', 'Who Value Liberty', 'Who Own Pets', 'With More Than One Car']
+floridaMan = ['Alligator', 'Bath Salts', 'Meth', 'Riding Mower', 'PCP', 'Grizzly Bear', 'Half A Bushel Of Eggplant']
 
 def ImageGetter(searchTerm):
-	searchTermEncoded = urllib.parse.quote_plus(searchTerm)
-	print(apiKey)
-	imageSearch = "https://www.googleapis.com/customsearch/v1?q=" + searchTermEncoded + "&cx=014352846413195953642%3Aa2jzsrhjiqo&fileType=jpg&imgType=news&num=1&searchType=image&key=" + apiKey
-	contents = urllib.request.urlopen(imageSearch).read()
-	results = json.loads(contents)
-	url = results
-	print(url)
+    searchTermEncoded = urllib.parse.quote_plus(searchTerm)
+    print(apiKey)
+    imageSearch = "https://www.googleapis.com/customsearch/v1?q=" + searchTermEncoded + "&cx=014352846413195953642%3Aa2jzsrhjiqo&fileType=jpg&imgType=news&num=1&searchType=image&key=" + apiKey
+    contents = urllib.request.urlopen(imageSearch).read()
+    results = json.loads(contents)
+    url = results
+    print(url)
 
 
 #Sentence Structures
 
 def PickSentence():
-	#structure = r.randint(1, 15)
-	structure = 1
-	if structure == 1:
-		name123 = r.choice(nounPersonLive)
-		result = r.choice(attentionGetter) + ' ' + name123 + ' Just Told This ' + r.choice(nounTypeOfPerson) + ' To ' + r.choice(verbNiceThingToDo) + ' Because Of ' + r.choice(badThing)
-	elif structure == 2:
-		result = 'Was The ' + r.choice(eventThing) + ' Of ' + r.choice(nounPersonDead) + ' Actually ' + r.choice(badAdjectives) + '? What ' + r.choice(nounPersonLive) + ' Thinks Will ' + r.choice(reaction)
-	elif structure == 3:
-		result = 'What This ' + r.choice(nounTypeOfPerson) + ' ' + r.choice(verbPast) + ' About ' + r.choice(item) + ' Will ' + r.choice(reaction)
-	elif structure == 4:
-		result = r.choice(number) + ' ' + r.choice(genericObject) + ' ' + r.choice(nounTypeOfPerson) + 's Don\'t Want You To Know About ' + r.choice(badThing)
-	elif structure == 5:
-		result = 'Some Will Call It ' + r.choice(goodThing) + '. ' + r.choice(nounPersonLive) + ' Simply Calls It ' + r.choice(verbIng) + '.'
-	elif structure == 6:
-		result = 'Is This The ' + r.choice(startupTech) + ' For ' + r.choice(verbIng) + '? What ' + r.choice(nounPersonLive) + ' Is Up To Will ' + r.choice(reaction) 
-	elif structure == 7:
-		result = r.choice(nounTypeOfPerson) + 's Hate This: ' + r.choice(number) + ' ' + r.choice(genericObject) + ' One ' + r.choice(nounTypeOfPerson) + ' Discovered About ' + r.choice(verbIng)
-	elif structure == 8:
-		result = 'Myth Buster: A ' + r.choice(nounTypeOfPerson) + ' Sets The Record Straight On ' + r.choice(badThing)
-	elif structure == 9:
-		result = 'This ' + r.choice(organization) + ' Wanted to Make a Point About ' + r.choice(badThing) + '. They Succeeded.'
-	elif structure == 10:
-		result = 'This Startup is Selling ' + r.choice(item) + ' by Celebrating ' + r.choice(goodIdeal)
-	elif structure == 11:
-		result = r.choice(state) + ' Residents Born Between ' + r.choice(year) + ' and ' + r.choice(year) + ' ' + r.choice(characteristic) + ' Must Read This. '
-	elif structure == 12:
-		result = r.choice(number) + ' ' + r.choice(genericObject) + ' About ' + r.choice(item) + ' That Will ' + r.choice(reaction)
-	elif structure == 13:
-		result = 'Why ' + r.choice(item) + ' Are Pretty Much the Worst, and What ' + r.choice(nounTypeOfPerson) + 's Are Doing About It'
-	elif structure == 14:
-		result = 'This ' + r.choice(nounTypeOfPerson) + ' is Taking on ' + r.choice(badThing) + ' Using ' + r.choice(goodIdeal) + ' And ' + r.choice(item) + '.'
-	elif structure == 15:
-		result = r.choice(nounTypeOfPerson) + 's Explain Why We\'re Seeing a Dramatic Increase in ' + r.choice(verbIng)
-	print(result)
-	ImageGetter(name123)
+    structure = r.randint(1, 15)
+    #structure = 11
+    if structure == 1:
+        name123 = r.choice(nounPersonLive)
+        result = r.choice(attentionGetter) + ' ' + name123 + ' Just Told This ' + r.choice(nounTypeOfPerson) + ' To ' + r.choice(verbNiceThingToDo) + ' Because Of ' + r.choice(badThing)
+    elif structure == 2:
+        result = 'Was The ' + r.choice(eventThing) + ' Of ' + r.choice(nounPersonDead) + ' Actually ' + r.choice(badAdjectives) + '? What ' + r.choice(nounPersonLive) + ' Thinks Will ' + r.choice(reaction)
+    elif structure == 3:
+        result = 'What This ' + r.choice(nounTypeOfPerson) + ' ' + r.choice(verbPast) + ' About ' + r.choice(item) + ' Will ' + r.choice(reaction)
+    elif structure == 4:
+        result = r.choice(number) + ' ' + r.choice(genericObject) + ' ' + r.choice(nounTypeOfPerson) + 's Don\'t Want You To Know About ' + r.choice(badThing)
+    elif structure == 5:
+        result = 'Some Will Call It ' + r.choice(goodThing) + '. ' + r.choice(nounPersonLive) + ' Simply Calls It ' + r.choice(verbIng) + '.'
+    elif structure == 6:
+        result = 'Is This The ' + r.choice(startupTech) + ' For ' + r.choice(verbIng) + '? What ' + r.choice(nounPersonLive) + ' Is Up To Will ' + r.choice(reaction) 
+    elif structure == 7:
+        result = r.choice(nounTypeOfPerson) + 's Hate This: ' + r.choice(number) + ' ' + r.choice(genericObject) + ' One ' + r.choice(nounTypeOfPerson) + ' Discovered About ' + r.choice(verbIng)
+    elif structure == 8:
+        result = 'Myth Buster: A ' + r.choice(nounTypeOfPerson) + ' Sets The Record Straight On ' + r.choice(badThing)
+    elif structure == 9:
+        result = 'This ' + r.choice(organization) + ' Wanted to Make a Point About ' + r.choice(badThing) + '. They Succeeded.'
+    elif structure == 10:
+        result = 'This Startup is Selling ' + r.choice(item) + ' by Celebrating ' + r.choice(goodIdeal)
+    elif structure == 11:
+        result = r.choice(state) + ' Residents Born Between ' + r.choice(year) + ' and ' + r.choice(year) + ' ' + r.choice(characteristic) + ' Must Read This. '
+    elif structure == 12:
+        result = r.choice(number) + ' ' + r.choice(genericObject) + ' About ' + r.choice(item) + ' That Will ' + r.choice(reaction)
+    elif structure == 13:
+        result = 'Why ' + r.choice(item) + ' Are Pretty Much the Worst, and What ' + r.choice(nounTypeOfPerson) + 's Are Doing About It'
+    elif structure == 14:
+        result = 'This ' + r.choice(nounTypeOfPerson) + ' is Taking on ' + r.choice(badThing) + ' Using ' + r.choice(goodIdeal) + ' And ' + r.choice(item) + '.'
+    elif structure == 15:
+        result = r.choice(nounTypeOfPerson) + 's Explain Why We\'re Seeing a Dramatic Increase in ' + r.choice(verbIng)
+    elif structure == 16:
+        flVerb = r.choice(verbPast)
+        while (flVerb == 'Did' or flVerb == 'Unmasked'):
+            flVerb = r.choice(verbPast)
+        result = 'Florida Man ' + flVerb + ' ' + r.choice(verbIng) + ' With ' + r.choice(floridaMan) + ' Is The Key To ' + r.choice(goodIdeal) + ': His Reason Will ' + r.choice(reaction) 
+    print(result)
+    #ImageGetter(name123)
 
 
 
-	#for adding new sentences
-	#elif structure == [number]:
-	#	result = 
+    #for adding new sentences
+    #elif structure == [number]:
+    #	result = 
 
 PickSentence()
